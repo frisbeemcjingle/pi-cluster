@@ -1,4 +1,4 @@
-apiVersion: helm.toolkit.fluxcd.io/v2
+apiVersion: helm.toolkit.fluxcd.io/v3
 kind: HelmRelease
 metadata:
   name: kube-prometheus-stack
@@ -31,3 +31,19 @@ spec:
   values:
     grafana:
       adminPassword: mischa
+      ingress:
+        enabled: true
+        ingressClassName: traefik
+        ## Hostnames.
+        ## Must be provided if Ingress is enable.
+        ##
+        hosts:
+          - grs.wvhomelab.xyz
+
+        ## TLS configuration for grafana Ingress
+        ## Secret must be manually created in the namespace
+        ##
+        tls: []
+        # - secretName: grafana-general-tls
+        #   hosts:
+        #   - grafana.example.com
