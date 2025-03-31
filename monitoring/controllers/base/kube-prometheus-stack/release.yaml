@@ -8,10 +8,7 @@ spec:
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: "70.3.0"
-
-      # version: "58.x"
-
+      version: "70.x"
       sourceRef:
         kind: HelmRepository
         name: kube-prometheus-stack
@@ -34,9 +31,6 @@ spec:
       ingress:
         enabled: true
         ingressClassName: traefik
-        ## Hostnames.
-        ## Must be provided if Ingress is enable.
-        ##
         hosts:
           - grs.wvhomelab.xyz
 
