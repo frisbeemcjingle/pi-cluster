@@ -18,12 +18,10 @@ spec:
       # runAsGroup: 33 # www-data group ID
       containers:
         - name: audiobookshelf
-          image: ghcr.io/advplyr/audiobookshelf:2.17.2
+          image: ghcr.io/advplyr/audiobookshelf:2.20.0
           envFrom:
             - configMapRef:
               name: audiobookshelf-configmap
           ports:
             - containerPort: 3005
               protocol: TCP
-          restartPolicy: Always
-
