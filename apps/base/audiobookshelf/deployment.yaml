@@ -15,9 +15,9 @@ spec:
       containers:
         - name: audiobookshelf
           image: ghcr.io/advplyr/audiobookshelf:latest
-          envFrom:
-            - configMapRef:
-              name: audiobookshelf-configmap
+            envFrom:
+              - configMapRef:
+                name: audiobookshelf-configmap
           ports:
             - containerPort: 3005
               protocol: TCP
