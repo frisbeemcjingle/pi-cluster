@@ -1,8 +1,12 @@
 {
+<<<<<<< HEAD
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "kubernetes": {
     "fileMatch": [
       "\\.yaml$"
     ]
   }
+=======
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+>>>>>>> refs/remotes/origin/main
 }
