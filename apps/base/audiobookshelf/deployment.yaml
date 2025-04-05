@@ -17,7 +17,27 @@ spec:
           image: ghcr.io/advplyr/audiobookshelf:2.20.0
           envFrom:
           - configMapRef:
-                name: audiobookshelf-configmap           
+                name: audiobookshelf-configmap
           ports:
             - containerPort: 3005
               protocol: TCP
+         volumeMounts:
+            - mountPath: /config
+              name: audiobookshelf-config
+            - mountPath: /metadata
+              name: audiobookshelf-metadata
+            - mountPath: /audiobooks
+              name: audiobookshelf-audiobooks
+
+      restartPolicy: Always
+
+      volumes:
+        - name: audiobookshelf-config
+          persistentVolumeClaim:
+            claimName: audiobookshelf-config
+        - name: audiobookshelf-metadata
+          persistentVolumeClaim:
+            claimName: audiobookshelf-metadata
+        - name: audiobookshelf-audiobooks
+          persistentVolumeClaim:
+            claimName: audiobookshelf-audiobooks
